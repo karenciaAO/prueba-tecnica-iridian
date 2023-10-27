@@ -1,0 +1,28 @@
+2. Query para obtener la calificación de todos los estudiantes que presentaron una evaluación
+
+SELECT
+  estudiante.id,
+  estudiante.nombre,
+  estudiante.apellido,
+  SUM(pregunta.calificacion) AS calificacion
+FROM
+  evaluacion
+INNER JOIN
+  pregunta
+ON
+  evaluacion.id = pregunta.evaluacion_id
+INNER JOIN
+  estudiante
+ON
+  evaluacion.curso_id = curso.id
+WHERE
+  estudiante.correo = 'correo@ejemplo.com'
+GROUP BY
+  estudiante.id
+
+Bonus 
+Realice un query SQL para saber si un punto (longitud, latitud) está en un polígono de cobertura almacenado
+
+SELECT *
+FROM puntos
+WHERE ST_Contains((SELECT cobertura FROM cobertura), ST_GeomFromText('POINT(longitud latitud)'));

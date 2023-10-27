@@ -1,0 +1,7 @@
+formulario_contacto:
+    path: /formulario-contacto
+    controller: App\Controller\FormularioContactoController::formularioContacto
+
+exito:
+    path: /exito
+    controller: App\Controller\FormularioContactoController::exito

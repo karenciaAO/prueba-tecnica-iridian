@@ -1,0 +1,23 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        public: false
+
+    # Define tus servicios personalizados aquí
+    App\Service\MyCustomService:
+        arguments:
+            $someArgument: 'valor_argumento'
+        tags:
+            - { name: 'my_custom_tag' }
+
+    # Define los controladores como servicios
+    App\Controller\HomeController:
+        public: true
+        autowire: true
+        autoconfigure: true
+
+    App\Controller\OtroController:
+        public: true
+        autowire: true
+        autoconfigure: true
